@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagamentsysytem.HelloController">
+   <children>
+      <Pane layoutX="180.0" prefHeight="30.0" prefWidth="1022.0">
+         <children>
+            <Button layoutX="962.0" layoutY="1.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="60.0" styleClass="exit" stylesheets="@style.css" text="X" />
+            <MenuBar fx:id="menuBar" layoutY="4.0" prefHeight="25.0" prefWidth="367.0">
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="addTableColumn" mnemonicParsing="false" text="Add Table Column" />
+                        <MenuItem fx:id="royhatYaratish" mnemonicParsing="false" text="Ro'yhat Yaratish" />
+                        <MenuItem fx:id="jadvalYaratItem" mnemonicParsing="false" text="Jadval yaratish" />
+                        <Menu fx:id="mahsulotQoshish" mnemonicParsing="false" text="Mahsulot qo'shish">
+                           <items>
+                              <MenuItem fx:id="taomItem" mnemonicParsing="false" text="Taomlar" />
+                              <MenuItem fx:id="ichimlikItem" mnemonicParsing="false" text="Ichimliklar" />
+                              <MenuItem fx:id="vaBoshqaItem" mnemonicParsing="false" text="Va bosqa mahsulotlar" />
+                              <MenuItem mnemonicParsing="false" text="Mahsulot qo'shish" />
+                           </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </Pane>
+      <AnchorPane id="Buyurtmalar" fx:id="buyurtmaPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="820.0" visible="false">
+         <children>
+            <Separator layoutX="274.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="570.0" prefWidth="7.0" />
+            <ListView fx:id="royhat" layoutX="-1.0" layoutY="100.0" prefHeight="469.0" prefWidth="277.0" />
+            <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="103.0" prefWidth="277.0" styleClass="hBox" stylesheets="@style.css">
+               <children>
+                  <Button fx:id="buyurtmaOlishBtn" layoutX="9.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" styleClass="navMenuButton" stylesheets="@style.css" text="Buyurtma olish" />
+                  <Button fx:id="buyurtmaKorishBtn" layoutX="133.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="navMenuButton" stylesheets="@style.css" text="Buyurtmani ko'rish" />
+                  <Button fx:id="yangilashBtn" layoutX="9.0" layoutY="56.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" styleClass="navMenuButton" stylesheets="@style.css" text="Yangilash" />
+                  <Button fx:id="ochirishBtn" layoutX="133.0" layoutY="56.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="navMenuButton" stylesheets="@style.css" text="O'chirish" />
+               </children>
+            </Pane>
+            <AnchorPane layoutX="278.0" prefHeight="570.0" prefWidth="543.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="570.0" prefWidth="740.0">
+                    <columns>
+                      <TableColumn id="Taomlar" fx:id="taomlar" prefWidth="236.0" text="Taomlar">
+                           <columns>
+                              <TableColumn fx:id="taomNomi" prefWidth="127.0" text="Nomi" />
+                            <TableColumn fx:id="taomNarxi" prefWidth="64.0" text="Narxi" />
+                           </columns>
+                        </TableColumn>
+                        <TableColumn id="Ichimliklar" fx:id="ichimliklar" prefWidth="246.0" text="Ichimliklar">
+                           <columns>
+                              <TableColumn fx:id="ichimlikNomi" prefWidth="137.0" text="Nomi" />
+                              <TableColumn fx:id="ichimlikNarxi" prefWidth="83.0" text="Narxi" />
+                           </columns>
+                        </TableColumn>
+                        <TableColumn id="Ichimliklar" fx:id="vaBoshqalar" prefWidth="194.0" text="Va Boshqalar">
+                           <columns>
+                              <TableColumn fx:id="vaBoshqaNomi" prefWidth="143.0" text="Nomi" />
+                              <TableColumn fx:id="vaBoshqaNarxi" prefWidth="77.0" text="Narxi" />
+                           </columns>
+                        </TableColumn>
+                        <TableColumn fx:id="jamiNarx" prefWidth="108.0" text="Jami Narx" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="NavBarPane" fx:id="navBar" prefHeight="600.0" prefWidth="180.0" styleClass="navbar" stylesheets="@style.css">
+         <children>
+            <Circle fill="#248069" layoutX="90.0" layoutY="97.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="45.0" layoutY="193.0" prefHeight="30.0" prefWidth="90.0" text="Welcome!" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="user" alignment="CENTER" layoutX="3.0" layoutY="230.0" prefHeight="30.0" prefWidth="173.0" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="home" layoutX="15.0" layoutY="283.0" mnemonicParsing="false" onAction="#actionDashboard" prefWidth="160.0" styleClass="navButton" stylesheets="@style.css" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="buyurtmalar" layoutX="15.0" layoutY="324.0" mnemonicParsing="false" onAction="#actionDashboard" prefHeight="35.0" prefWidth="160.0" styleClass="navButton" stylesheets="@style.css" text="Buyurtmalar" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="322.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="stollar" layoutX="15.0" layoutY="365.0" mnemonicParsing="false" onAction="#actionDashboard" prefWidth="160.0" styleClass="navButton" stylesheets="@style.css" text="Stollar" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="400.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="mahsulotlar" layoutX="15.0" layoutY="365.0" mnemonicParsing="false" onAction="#actionDashboard" prefWidth="160.0" styleClass="navButton" stylesheets="@style.css" text="Mahsulotlar" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="361.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="edit" layoutX="26.0" layoutY="27.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="131.0" styleClass="editButton" stylesheets="@style.css" text="Edit">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="hodimlar" layoutX="5.0" layoutY="443.0" mnemonicParsing="false" onAction="#actionDashboard" prefHeight="37.0" prefWidth="170.0" styleClass="navButton" stylesheets="@style.css" text="Hodimlar" AnchorPane.topAnchor="440.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="ishHaqlari" layoutX="6.0" layoutY="480.0" mnemonicParsing="false" onAction="#actionDashboard" prefHeight="37.0" prefWidth="170.0" styleClass="navButton" stylesheets="@style.css" text="Ish haqlari">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="sozlamalar" layoutX="5.0" layoutY="549.0" mnemonicParsing="false" onAction="#actionDashboard" prefHeight="37.0" prefWidth="170.0" styleClass="navButton" stylesheets="@style.css" text="Sozlamalar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sozlamalarPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="1022.0" visible="false">
+         <children>
+            <Separator layoutX="363.0" orientation="VERTICAL" prefHeight="570.0" prefWidth="7.0" />
+            <ListView editable="true" fixedCellSize="0.0" layoutX="377.0" layoutY="-1.0" prefHeight="570.0" prefWidth="288.0" />
+            <AnchorPane id="Mahsulotlar Qo'shish" fx:id="mahsulotQoshishPane" prefHeight="570.0" prefWidth="367.0" visible="false">
+               <children>
+                  <Button layoutX="186.0" layoutY="190.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="Qo'shish" />
+                  <TextField layoutX="162.0" layoutY="123.0" prefHeight="30.0" prefWidth="170.0" />
+                  <Label layoutX="28.0" layoutY="123.0" prefHeight="30.0" prefWidth="115.0" text="Taomlar narxi:" />
+                  <TextField layoutX="162.0" layoutY="58.0" prefHeight="30.0" prefWidth="170.0" />
+                  <Label layoutX="28.0" layoutY="58.0" prefHeight="30.0" prefWidth="115.0" text="Taomlar nomi:" />
+                  <Button layoutX="91.0" layoutY="190.0" mnemonicParsing="false" text="Button" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="Royhat Yaratish" fx:id="royhatYaratishPane" layoutX="6.0" layoutY="27.0" prefHeight="546.0" prefWidth="367.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="33.0" prefHeight="30.0" prefWidth="130.0" text="Ro'yhat nomi" />
+                  <TextField fx:id="royhatNomiTf" layoutX="159.0" layoutY="36.0" prefHeight="30.0" prefWidth="195.0" />
+                  <Label layoutX="14.0" layoutY="87.0" prefHeight="30.0" prefWidth="130.0" text="Label" />
+                  <TextField layoutX="159.0" layoutY="87.0" prefHeight="30.0" prefWidth="195.0" />
+                  <Button fx:id="royhatKiritish" layoutX="215.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" text="Kiritish" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="Jadval Yaratish" fx:id="jadvalPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="374.0">
+         <children>
+            <Button fx:id="ustunKirit" layoutX="322.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="+" />
+            <Label layoutX="25.0" layoutY="37.0" prefHeight="25.0" prefWidth="115.0" text="Ustun nomi" />
+            <TextField fx:id="ustunNomi" layoutX="159.0" layoutY="37.0" />
+            <TextField fx:id="ustungaUstunNomi" layoutX="159.0" layoutY="88.0" />
+            <Label layoutX="25.0" layoutY="88.0" prefHeight="25.0" prefWidth="108.0" text="Ustun + Ustun" />
+            <Button fx:id="usrungaUstunKirit" layoutX="322.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="+" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="Table Example" fx:id="JadvalNamunaPane" layoutX="551.0" layoutY="30.0" prefHeight="570.0" prefWidth="650.0" />
+      <Separator layoutX="546.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="10.0" />
+   </children>
+</AnchorPane>

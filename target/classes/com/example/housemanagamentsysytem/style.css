@@ -1,0 +1,83 @@
+.panel{
+  -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+
+}
+.navbar{
+
+       -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+
+   }
+.exit{
+  -fx-background-color:none;
+      -fx-background-radius: 5px;
+      -fx-cursor:hand;
+     -fx-font-size:14px;
+
+  }
+      .exit:hover{
+      -fx-background-color: #f15b72;
+      }
+
+   .navButton{
+         -fx-background-color:linear-gradient(to bottom right,rgba(121,172,255,0.2),rgba(255,106,239,0.2));
+         -fx-text-fill:#fff;
+         -fx-cursor:hand;
+
+         -fx-border-color:#fff;
+
+         }
+
+         .navButton:hover{
+               -fx-background-color:linear-gradient(to bottom right,rgba(90,150,230,0.6),rgba(230,90,200,0.6));
+
+         }
+         .navButton:pressed{
+         -fx-background-color:linear-gradient(to bottom right,rgba(121,172,255,0.2),rgba(255,106,239,0.2));
+
+         }
+
+      .hBox{
+        -fx-background-color:linear-gradient(to bottom left,#2f466b,#662d60);
+        -fx-border-color:linear-gradient(to bottom left, rgba(30,30,400,0.9),rgba(30,90,200,0.9));
+        -fx-border-width:3px;
+        -fx-padding: 5px 5px 5px 5px;
+        -fx-spacing: 15px;
+
+      }
+
+
+
+.navMenuButton{
+         -fx-background-color:linear-gradient(to bottom right,rgba(121,172,255,0.2),rgba(255,106,239,0.2));
+         -fx-text-fill:#fff;
+         -fx-cursor:hand;
+          -fx-font-size:15px;
+          -fx-font-family: "Arial Narrow";
+
+         -fx-border-color:#3cbfb2;
+        -fx-border-width:1.5px;
+         -fx-background-radius:10;
+         -fx-border-radius:10;
+
+         }
+
+         .navMenuButton:hover{
+               -fx-background-color:linear-gradient(to bottom right,rgba(90,150,230,0.6),rgba(230,90,200,0.6));
+
+         }
+         .navMenuButton:pressed{
+         -fx-background-color:linear-gradient(to bottom right,rgba(121,172,255,0.2),rgba(255,106,239,0.2));
+
+         }
+
+          .editButton{
+               -fx-background-color:transparent;
+               -fx-background-radius:80px;
+               -fx-border-radius:80px;
+               -fx-border-color:#fff;
+               -fx-border-width:2px;
+               -fx-text-fill:#fff;
+               -fx-font-size:18px;
+               -fx-padding:0px,60px,0px,0px;
+               -fx-cursor:hand;
+               }
