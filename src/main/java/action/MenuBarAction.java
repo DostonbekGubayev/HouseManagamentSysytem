@@ -1,6 +1,7 @@
 package action;
 
 import com.example.housemanagamentsysytem.HelloController;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableColumn;
@@ -13,7 +14,7 @@ public class MenuBarAction {
         this.controller = controller;
     }
 
-    public void menuAction(Event event){
+    public void menuAction(ActionEvent event){
         if (event.getSource().equals(controller.taomItem)){
 
             controller.mahsulotQoshishPane.setVisible(true);
@@ -26,7 +27,7 @@ public class MenuBarAction {
             controller.mahsulotQoshishPane.setVisible(false);
             controller.jadvalPane.setVisible(false);
             controller.buyurtmaPane.setVisible(false);
-            controller.sozlamalarPane.setVisible(false);
+           // controller.sozlamalarPane.setVisible(false);
 
         }else if (event.getSource().equals(controller.jadvalYaratItem)){
 

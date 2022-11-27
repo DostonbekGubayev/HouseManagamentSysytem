@@ -138,9 +138,9 @@ public class HelloController implements Initializable, EventHandler {
     public void initialize(URL location, ResourceBundle resources) {
 
         sozlamalar.setOnAction(this::setOnActionButtons);
-       taomItem.setOnAction(this::handle);
-       royhatYaratish.setOnAction(this::handle);
-       jadvalYaratItem.setOnAction(this::handle);
+       taomItem.setOnAction(this::handleMenu);
+       royhatYaratish.setOnAction(this::handleMenu);
+       jadvalYaratItem.setOnAction(this::handleMenu);
         setTableData();
         setListViewData();
     }
@@ -151,9 +151,14 @@ public class HelloController implements Initializable, EventHandler {
 
 
 
+
+    public void handleMenu(ActionEvent event) {
+        new MenuBarAction(this).menuAction(event);
+
+    }
+
     @Override
     public void handle(Event event) {
-        new MenuBarAction(this).menuAction(event);
 
     }
 }
