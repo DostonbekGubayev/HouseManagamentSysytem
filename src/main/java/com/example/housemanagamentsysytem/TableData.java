@@ -12,7 +12,11 @@ public class TableData {
     private Integer ichimlikNarxi;
     private Integer vaBoshqaNarxlar;
     private Integer jamiNarx;
-    Integer result;
+    private Integer taomSoni;
+     private Integer  ichimlikSoni;
+    private Integer   boshqaSoni;
+   // private Integer result=0;
+
 
 
 
@@ -22,7 +26,12 @@ public class TableData {
 
 
 
-    public TableData(String taomNom, String ichimlikNom, String vaBoshqalarNom, Integer taomNarxi, Integer ichimlikNarxi, Integer vaBoshqaNarxlar,Integer jamiNarx) {
+
+    public TableData(String taomNom,Integer taomNarxi,Integer taomSoni, String ichimlikNom,
+                       Integer ichimlikNarxi, Integer ichimlikSoni, String vaBoshqalarNom,
+                     Integer vaBoshqaNarxlar, Integer boshqaSoni, Integer jamiNarx) {
+
+
        taomNomi=new SimpleStringProperty(taomNom);
        ichimlikNomi=new SimpleStringProperty(ichimlikNom);
        vaBoshqalarNomi=new SimpleStringProperty(vaBoshqalarNom);
@@ -30,6 +39,10 @@ public class TableData {
         this.ichimlikNarxi = ichimlikNarxi;
         this.vaBoshqaNarxlar = vaBoshqaNarxlar;
         this.jamiNarx=jamiNarx;
+        this.taomSoni = taomSoni;
+        this.ichimlikSoni = ichimlikSoni;
+        this.boshqaSoni = boshqaSoni;
+
 
     }
 
@@ -93,14 +106,69 @@ public class TableData {
         this.vaBoshqaNarxlar = vaBoshqaNarxlar;
     }
 
-//    public void setJamiNarx(Integer jamiNarx){
-//        this.jamiNarx=jamiNarx;
-//        Integer result=
-//    }
+    public Integer getTaomSoni() {
+        return taomSoni;
+    }
+
+    public void setTaomSoni(Integer taomSoni) {
+        this.taomSoni = taomSoni;
+    }
+
+    public Integer getIchimlikSoni() {
+        return ichimlikSoni;
+    }
+
+    public void setIchimlikSoni(Integer ichimlikSoni) {
+        this.ichimlikSoni = ichimlikSoni;
+    }
+
+    public Integer getBoshqaSoni() {
+        return boshqaSoni;
+    }
+
+    public void setBoshqaSoni(Integer boshqaSoni) {
+        this.boshqaSoni = boshqaSoni;
+    }
+
+    public void setJamiNarx(Integer jamiNarx) {
+        this.jamiNarx = jamiNarx;
+    }
+
+
+
+
 
     public Integer getJamiNarx(){
-        Integer result=taomNarxi+ichimlikNarxi+vaBoshqaNarxlar;
-        return result;
+        Integer result;
+        if (taomNarxi!=null&&taomSoni!=null&&ichimlikNarxi!=null&&
+                ichimlikSoni!=null&&vaBoshqaNarxlar!=null&&boshqaSoni!=null){
+
+
+            result=taomNarxi*taomSoni+ichimlikNarxi*ichimlikSoni+vaBoshqaNarxlar*boshqaSoni;
+            return result;
+
+
+        }
+        else if (taomNarxi.equals(null)&taomSoni.equals(null)){
+
+            result=ichimlikNarxi*ichimlikSoni+vaBoshqaNarxlar*boshqaSoni;
+            return result;
+
+        }  else if (ichimlikNarxi.equals(null)&&ichimlikSoni.equals(null)){
+
+            result=taomNarxi*taomSoni+vaBoshqaNarxlar*boshqaSoni;
+            return result;
+
+            }else if (vaBoshqaNarxlar.equals(null)&&boshqaSoni.equals(null)){
+
+            result=taomNarxi*taomSoni+ichimlikNarxi*ichimlikSoni;
+            return result;
+
+        }
+
+        return taomNarxi*taomSoni+ichimlikNarxi*ichimlikSoni+vaBoshqaNarxlar*boshqaSoni;
     }
+
+
 
 }

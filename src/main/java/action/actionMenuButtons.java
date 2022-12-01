@@ -17,12 +17,12 @@ public class actionMenuButtons {
         }else if (controller.buyurtmalar.isFocused()){
 
             controller.buyurtmaPane.setVisible(true);
-            controller.sozlamalarPane.setVisible(false);
-            controller.jadvalPane.setVisible(false);
-            controller.jadvalPane.setVisible(false);
-            controller.royhatYaratishPane.setVisible(false);
-            controller.mahsulotQoshishPane.setVisible(false);
-            controller.buyurtmaPane.setVisible(false);
+            controller.settingsPane.setVisible(false);
+//            controller.jadvalPane.setVisible(false);
+//            controller.jadvalPane.setVisible(false);
+//            controller.royhatYaratishPane.setVisible(false);
+//            controller.mahsulotQoshishPane.setVisible(false);
+//            controller.buyurtmaPane.setVisible(false);
           //  controller.sozlamalarPane.setVisible(false);
 
         }else if (controller.mahsulotlar.isFocused()){
@@ -33,9 +33,8 @@ public class actionMenuButtons {
 
         }else if (controller.sozlamalar.isFocused()){
 
-            controller.sozlamalarPane.setVisible(true);
+            controller.settingsPane.setVisible(true);
             controller.buyurtmaPane.setVisible(false);
-            controller.jadvalPane.setVisible(false);
 
         }
     }
