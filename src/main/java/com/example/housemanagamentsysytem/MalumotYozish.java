@@ -4,8 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class MalumotYozish {
 
@@ -30,6 +34,8 @@ public class MalumotYozish {
     ObservableList<String>boshqalarToplami=FXCollections.observableArrayList();
 
 
+    FileWriter fileWriter;
+    File file;
 
     public MalumotYozish(HelloController controller){
         this.controller=controller;
@@ -48,6 +54,7 @@ public class MalumotYozish {
         }
 
 
+
     }
 
     public  void malumotYoz(ActionEvent event){
@@ -58,6 +65,21 @@ public class MalumotYozish {
            taomlarToplami.addAll(String.valueOf(taomlarToplami.addAll(controller.boshqaNomiSetting.getText())));
             //controller.taomNomiCBox.getItems().add(controller.taomNomiSetting.getText());
             controller.taomNomiSettCbox.getItems().add(controller.taomNomiSetting.getText());
+
+            file=new File("src/taomMalumotlari.txt");
+
+            try {
+                file.createNewFile();
+                 fileWriter=new FileWriter(file);
+                while (true){
+                    fileWriter.write(controller.taomNomiSetting.getText());
+                    fileWriter.close();
+                    Scanner scanner=new Scanner(file);
+                    controller.taomNomiCBox.getItems().add(scanner.nextLine());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }else if (event.getSource().equals(controller.ichimlikNomQoshBtn)){
 

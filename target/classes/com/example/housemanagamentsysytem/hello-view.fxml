@@ -1,150 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane cacheShape="false" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagamentsysytem.HelloController">
    <children>
-      <AnchorPane id="Buyurtmalar" fx:id="buyurtmaPane" layoutX="180.0" layoutY="30.0" prefHeight="600.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="180.0" prefHeight="30.0" prefWidth="1022.0">
          <children>
-            <AnchorPane layoutX="454.0" layoutY="30.0" prefHeight="600.0" prefWidth="732.0">
+            <Button layoutX="962.0" layoutY="1.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="60.0" styleClass="exit" stylesheets="@style.css" text="X" />
+            <MenuBar fx:id="menuBar" layoutY="4.0" prefHeight="25.0" prefWidth="367.0">
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="addTableColumn" mnemonicParsing="false" text="Add Table Column" />
+                        <MenuItem fx:id="royhatYaratish" mnemonicParsing="false" text="Ro'yhat Yaratish" />
+                        <MenuItem fx:id="jadvalYaratItem" mnemonicParsing="false" text="Jadval yaratish" />
+                        <Menu fx:id="mahsulotQoshish" mnemonicParsing="false" text="Mahsulot qo'shish">
+                           <items>
+                              <MenuItem fx:id="taomItem" mnemonicParsing="false" text="Taomlar" />
+                              <MenuItem fx:id="ichimlikItem" mnemonicParsing="false" text="Ichimliklar" />
+                              <MenuItem fx:id="vaBoshqaItem" mnemonicParsing="false" text="Va bosqa mahsulotlar" />
+                              <MenuItem mnemonicParsing="false" text="Mahsulot qo'shish" />
+                           </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </Pane>
+      <AnchorPane id="Buyurtmalar" fx:id="buyurtmaPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="820.0" visible="false">
+         <children>
+            <Separator layoutX="274.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="570.0" prefWidth="7.0" />
+            <ListView fx:id="royhat" layoutX="-1.0" layoutY="100.0" prefHeight="469.0" prefWidth="277.0" />
+            <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="103.0" prefWidth="277.0" styleClass="hBox" stylesheets="@style.css">
                <children>
-                  <TableView fx:id="tableView" prefHeight="535.0" prefWidth="746.0">
+                  <Button fx:id="buyurtmaOlishBtn" layoutX="9.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" styleClass="navMenuButton" stylesheets="@style.css" text="Buyurtma olish" />
+                  <Button fx:id="buyurtmaKorishBtn" layoutX="133.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="navMenuButton" stylesheets="@style.css" text="Buyurtmani ko'rish" />
+                  <Button fx:id="yangilashBtn" layoutX="9.0" layoutY="56.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" styleClass="navMenuButton" stylesheets="@style.css" text="Yangilash" />
+                  <Button fx:id="ochirishBtn" layoutX="133.0" layoutY="56.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="navMenuButton" stylesheets="@style.css" text="O'chirish" />
+               </children>
+            </Pane>
+            <AnchorPane layoutX="278.0" prefHeight="570.0" prefWidth="543.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="570.0" prefWidth="740.0">
                     <columns>
                       <TableColumn id="Taomlar" fx:id="taomlar" prefWidth="236.0" text="Taomlar">
                            <columns>
-                              <TableColumn fx:id="taomNomi" prefWidth="91.0" text="Nomi" />
-                            <TableColumn fx:id="taomNarxi" prefWidth="69.0" text="Narxi" />
-                              <TableColumn fx:id="taomSoni" prefWidth="57.0" text="Soni" />
+                              <TableColumn fx:id="taomNomi" prefWidth="127.0" text="Nomi" />
+                            <TableColumn fx:id="taomNarxi" prefWidth="64.0" text="Narxi" />
                            </columns>
                         </TableColumn>
                         <TableColumn id="Ichimliklar" fx:id="ichimliklar" prefWidth="246.0" text="Ichimliklar">
                            <columns>
-                              <TableColumn fx:id="ichimlikNomi" prefWidth="97.0" text="Nomi" />
-                              <TableColumn fx:id="ichimlikNarxi" prefWidth="51.0" text="Narxi" />
-                              <TableColumn fx:id="ichimlikSoni" prefWidth="56.0" text="Soni" />
+                              <TableColumn fx:id="ichimlikNomi" prefWidth="137.0" text="Nomi" />
+                              <TableColumn fx:id="ichimlikNarxi" prefWidth="83.0" text="Narxi" />
                            </columns>
                         </TableColumn>
-                        <TableColumn id="Ichimliklar" fx:id="vaBoshqalar" prefWidth="194.0" text=" Boshqalar mahsulotlar">
+                        <TableColumn id="Ichimliklar" fx:id="vaBoshqalar" prefWidth="194.0" text="Va Boshqalar">
                            <columns>
-                              <TableColumn fx:id="vaBoshqaNomi" prefWidth="113.0" text="Nomi" />
-                              <TableColumn fx:id="vaBoshqaNarxi" prefWidth="72.0" text="Narxi" />
-                              <TableColumn fx:id="boshqaSoni" prefWidth="49.0" text="Soni" />
+                              <TableColumn fx:id="vaBoshqaNomi" prefWidth="143.0" text="Nomi" />
+                              <TableColumn fx:id="vaBoshqaNarxi" prefWidth="77.0" text="Narxi" />
                            </columns>
                         </TableColumn>
-                        <TableColumn fx:id="jamiNarx" prefWidth="120.0" text="Jami Narx" />
+                        <TableColumn fx:id="jamiNarx" prefWidth="108.0" text="Jami Narx" />
                     </columns>
                   </TableView>
-                  <Label fx:id="summaLbl" layoutX="546.0" layoutY="538.0" prefHeight="25.0" prefWidth="234.0" styleClass="taomLbl" stylesheets="@buyurtmalar.css" text="Summa:" />
-                  <Label fx:id="narxQiymatiLbl" layoutX="632.0" layoutY="537.0" prefHeight="30.0" prefWidth="108.0" text="0">
-                     <font>
-                        <Font name="Berlin Sans FB" size="20.0" />
-                     </font>
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Pane layoutX="180.0" layoutY="30.0" prefHeight="60.0" prefWidth="277.0" styleClass="hBox" stylesheets="@style.css">
-               <children>
-                  <Button fx:id="buyurtmaOlishBtn" layoutX="9.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" styleClass="navMenuButton" stylesheets="@style.css" text="Buyurtma olish" />
-                  <Button fx:id="buyurtmaKorishBtn" layoutX="133.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="navMenuButton" stylesheets="@style.css" text="Buyurtmani ko'rish" />
-               </children>
-            </Pane>
-            <AnchorPane layoutX="180.0" layoutY="90.0" prefHeight="511.0" prefWidth="277.0">
-               <children>
-                  <ListView fx:id="royhat" layoutX="-1.0" prefHeight="509.0" prefWidth="277.0" />
-                  <Separator layoutX="275.0" orientation="VERTICAL" prefHeight="509.0" prefWidth="1.0" />
-                  <AnchorPane prefHeight="511.0" prefWidth="277.0">
-                     <children>
-                        <Pane prefHeight="153.0" prefWidth="277.0" styleClass="taomlarPane" stylesheets="@buyurtmalar.css">
-                           <children>
-                              <Label layoutX="2.0" layoutY="37.0" prefHeight="26.0" prefWidth="101.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Taom nomi" />
-                              <Label layoutX="2.0" layoutY="77.0" prefHeight="26.0" prefWidth="76.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Taom narxi" />
-                              <Label layoutX="2.0" layoutY="118.0" prefHeight="25.0" prefWidth="82.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Soni" textFill="#7fc7ee" />
-                              <TextField fx:id="taomNarxiTf" layoutX="114.0" layoutY="74.0" promptText="Taom narxi" styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                              <TextField fx:id="taomSoniTf" layoutX="114.0" layoutY="114.0" promptText="Soni" styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                              <Label alignment="CENTER" layoutX="39.0" layoutY="-1.0" prefHeight="25.0" prefWidth="146.0" styleClass="taomLbl" stylesheets="@buyurtmalar.css" text="Taomlar" textFill="#512b2b">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="taomNomiCBox" layoutX="113.0" layoutY="38.0" prefWidth="150.0" promptText="Choose..." styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                           </children>
-                        </Pane>
-                        <Pane layoutY="153.0" prefHeight="164.0" prefWidth="277.0" styleClass="ichimliklarPane" stylesheets="@buyurtmalar.css">
-                           <children>
-                              <Label layoutY="41.0" prefHeight="26.0" prefWidth="101.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Ichimlik nomi" translateX="5.0">
-                                 <textFill>
-                                    <RadialGradient centerX="0.48342541436464087" centerY="0.504739336492891" radius="0.7298850574712643">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.5326460481099656">
-                                             <color>
-                                                <Color red="1.0" green="0.8666666746139526" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" green="1.0" blue="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </RadialGradient>
-                                 </textFill></Label>
-                              <Label layoutY="83.0" prefHeight="26.0" prefWidth="76.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Ichimlik narxi" textFill="#87e1cd" />
-                              <Label layoutY="121.0" prefHeight="25.0" prefWidth="76.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Soni" textFill="#bf1b6f" />
-                              <TextField fx:id="ichimlikNarxiTf" layoutX="114.0" layoutY="80.0" promptText="Ichimlik narxi" styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                              <TextField fx:id="ichimlikSoniTf" layoutX="114.0" layoutY="117.0" promptText="Soni" styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                              <Label alignment="CENTER" layoutX="39.0" layoutY="-1.0" prefHeight="25.0" prefWidth="146.0" styleClass="ichimlikLbl" stylesheets="@buyurtmalar.css" text="Ichimliklar">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="ichimlikNomiCBox" layoutX="113.0" layoutY="38.0" prefWidth="150.0" promptText="Choose..." styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                           </children>
-                        </Pane>
-                        <Pane layoutY="314.0" prefHeight="197.0" prefWidth="277.0" styleClass="boshqalarPane" stylesheets="@buyurtmalar.css">
-                           <children>
-                              <Label layoutX="3.0" layoutY="42.0" prefHeight="26.0" prefWidth="90.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Nomi" />
-                              <Label layoutX="3.0" layoutY="76.0" prefHeight="26.0" prefWidth="76.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Narxi" />
-                              <Label layoutX="3.0" layoutY="112.0" prefHeight="25.0" prefWidth="76.0" styleClass="labels" stylesheets="@buyurtmalar.css" text="Soni" />
-                              <TextField fx:id="boshqaNarxiTf" layoutX="114.0" layoutY="73.0" promptText="Narxi" styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                              <TextField fx:id="boshqaSoniTf" layoutX="114.0" layoutY="108.0" promptText="Soni" styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                              <Label alignment="CENTER" layoutX="39.0" layoutY="-1.0" prefHeight="25.0" prefWidth="146.0" styleClass="boshqaLbl" stylesheets="@buyurtmalar.css" text="Boshqalar">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="kiritishButton" layoutX="49.0" layoutY="148.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="kiritishBtn" stylesheets="@buyurtmalar.css" text="Kiritish">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Button>
-                              <ComboBox fx:id="boshqaNomiCBox" layoutX="113.0" layoutY="39.0" prefWidth="150.0" promptText="Choose..." styleClass="txtFields" stylesheets="@buyurtmalar.css" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
@@ -162,7 +105,7 @@
                   <Font name="Microsoft Sans Serif" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="home" layoutX="15.0" layoutY="283.0" mnemonicParsing="false" onAction="#actionSettings" prefWidth="160.0" styleClass="navButton" stylesheets="@style.css" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+            <Button fx:id="home" layoutX="5.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionSettings" prefWidth="160.0" styleClass="navButton" stylesheets="@style.css" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -204,6 +147,11 @@
             </Button>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="sozlamalarPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="1022.0" visible="false">
+         <children>
+            <ListView editable="true" fixedCellSize="0.0" layoutX="377.0" layoutY="-1.0" prefHeight="570.0" prefWidth="288.0" />
+         </children>
+      </AnchorPane>
       <AnchorPane id="Jadval Yaratish" fx:id="jadvalPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="374.0" visible="false">
          <children>
             <Button fx:id="ustunKirit" layoutX="322.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="+" />
@@ -214,6 +162,7 @@
             <Button fx:id="usrungaUstunKirit" layoutX="322.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="+" />
          </children>
       </AnchorPane>
+      <AnchorPane id="Table Example" fx:id="JadvalNamunaPane" layoutX="551.0" layoutY="30.0" prefHeight="570.0" prefWidth="650.0" visible="false" />
       <AnchorPane id="Mahsulot Qoshish" fx:id="mahsulotQoshishPane" layoutX="180.0" layoutY="30.0" prefHeight="576.0" prefWidth="375.0" visible="false">
          <children>
             <Button layoutX="199.0" layoutY="357.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Qo'shish" />
@@ -242,43 +191,23 @@
             <Button layoutX="35.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Tozalash" />
          </children>
       </AnchorPane>
-      <Pane layoutX="180.0" prefHeight="30.0" prefWidth="1020.0">
+      <AnchorPane layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="367.0">
          <children>
-            <Button fx:id="exit" layoutX="963.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="57.0" styleClass="exit" stylesheets="@style.css" text="X" />
+            <Separator layoutX="364.0" orientation="VERTICAL" prefHeight="570.0" prefWidth="7.0" />
+            <Button layoutX="217.0" layoutY="122.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" text="Kiritish" />
+            <Button layoutX="65.0" layoutY="122.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="O'chirish" />
+            <Label alignment="CENTER" layoutX="65.0" layoutY="8.0" prefHeight="30.0" prefWidth="200.0" text="Taomlar ro'yhati" />
+            <Label layoutX="22.0" layoutY="47.0" prefHeight="25.0" prefWidth="130.0" text="Taom ro'yhati" />
+            <Label layoutX="22.0" layoutY="84.0" prefHeight="25.0" prefWidth="115.0" text="Narx ro'yhati" />
+            <TextField layoutX="190.0" layoutY="43.0" />
+            <TextField layoutX="190.0" layoutY="80.0" />
          </children>
-      </Pane>
-      <AnchorPane id="Settings" fx:id="settingsPane" layoutX="180.0" layoutY="30.0" prefHeight="570.0" prefWidth="1020.0">
+      </AnchorPane>
+      <AnchorPane id="Royhat yaratish" fx:id="royhatYaratishPane" layoutX="551.0" layoutY="33.0" prefHeight="570.0" prefWidth="318.0">
          <children>
-            <Pane prefHeight="96.0" prefWidth="1020.0" style="-fx-background-color: #ccc;" />
-            <Pane layoutY="96.0" prefHeight="474.0" prefWidth="375.0">
-               <children>
-                  <Label layoutX="23.0" layoutY="24.0" prefHeight="35.0" prefWidth="115.0" text="Taom nomi" />
-                  <TextField fx:id="taomNomiSetting" layoutX="14.0" layoutY="72.0" prefHeight="30.0" prefWidth="150.0" />
-                  <Button fx:id="taomNomOchirBtn" layoutX="221.0" layoutY="87.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="O'chirish" />
-                  <Button fx:id="taomNomQoshBtn" layoutX="221.0" layoutY="48.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="115.0" text="Qo'shish" />
-                  <Label layoutX="14.0" layoutY="169.0" prefHeight="35.0" prefWidth="115.0" text="Ichimlik nomi" />
-                  <Label layoutX="23.0" layoutY="322.0" prefHeight="35.0" prefWidth="115.0" text="Boshqalar nomi" />
-                  <TextField fx:id="boshqaNomiSetting" layoutX="14.0" layoutY="379.0" prefHeight="30.0" prefWidth="150.0" />
-                  <TextField fx:id="ichimlikNomiSetting" layoutX="14.0" layoutY="228.0" prefHeight="30.0" prefWidth="150.0" />
-                  <Button fx:id="boshqaNomOchirBtn" layoutX="221.0" layoutY="399.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="O'chirish" />
-                  <Button fx:id="boshqaNomQoshBtn" layoutX="221.0" layoutY="357.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="115.0" text="Qo'shish" />
-                  <Separator layoutX="1.0" layoutY="160.0" prefWidth="374.0" />
-                  <Separator layoutX="2.0" layoutY="312.0" prefHeight="3.0" prefWidth="374.0" />
-                  <Button fx:id="ichimlikNomOchirBtn" layoutX="221.0" layoutY="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="O'chirish" />
-                  <Button fx:id="ichimlikNomQoshBtn" layoutX="221.0" layoutY="207.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="115.0" text="Qo'shish" />
-                  <Separator layoutX="372.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="7.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="375.0" layoutY="96.0" prefHeight="474.0" prefWidth="301.0">
-               <children>
-                  <ComboBox fx:id="taomNomiSettCbox" layoutX="35.0" layoutY="48.0" prefHeight="35.0" prefWidth="234.0" promptText="Taomlar" visibleRowCount="6" />
-                  <ComboBox fx:id="ichimlikNomiSettCbox" layoutX="35.0" layoutY="207.0" prefHeight="35.0" prefWidth="234.0" promptText="Ichimliklar" />
-                  <ComboBox fx:id="boshqaNomiSettCbox" layoutX="34.0" layoutY="357.0" prefHeight="37.0" prefWidth="234.0" promptText="Boshqalar" />
-                  <Separator layoutY="160.0" prefHeight="3.0" prefWidth="301.0" />
-                  <Separator layoutY="312.0" prefHeight="3.0" prefWidth="301.0" />
-                  <Separator layoutX="298.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="7.0" />
-               </children>
-            </Pane>
+            <Separator layoutX="322.0" orientation="VERTICAL" prefHeight="570.0" prefWidth="7.0" />
+            <Separator layoutX="-4.0" prefHeight="10.0" prefWidth="324.0" />
+            <ListView layoutX="-2.0" layoutY="7.0" prefHeight="563.0" prefWidth="324.0" />
          </children>
       </AnchorPane>
    </children>
