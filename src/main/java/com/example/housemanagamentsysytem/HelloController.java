@@ -12,16 +12,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.LinearGradient;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class HelloController implements Initializable {
 
     public Button buyurtmaKorishBtn,buyurtmaOlishBtn,
-            buyurtmalar,hodimlar,home,edit, stollar,yangilashBtn,sozlamalar;
+            buyurtmalar,hodimlar,home,edit, stollar,yangilashBtn,sozlamalar,saveButton;
 
     public AnchorPane sozlamalarPane,buyurtmaPane,mahsulotQoshishPane,
-            royhatYaratishPane,JadvalNamunaPane,jadvalPane,settingsPane;
+            royhatYaratishPane,JadvalNamunaPane,jadvalPane,settingsPane,homePane;
 
     public Button taomNomQoshBtn,taomNomOchirBtn,ichimlikNomQoshBtn,
             ichimlikNomOchirBtn,boshqaNomQoshBtn,boshqaNomOchirBtn;
@@ -83,9 +87,10 @@ public class HelloController implements Initializable {
             royhatYaratish,jadvalYaratItem;
 
 
-        ObservableList<TableData>malumotlar=FXCollections.observableArrayList();
+    ObservableList<TableData>malumotlar=FXCollections.observableArrayList();
+    ObservableList<String> taomToplami=FXCollections.observableArrayList();
 
-   private actionMenuButtons harakat;
+    private actionMenuButtons harakat;
     private MalumotYozish malumotYozish;
     private TableData tableData;
 
@@ -93,42 +98,12 @@ public class HelloController implements Initializable {
         harakat=new actionMenuButtons(this);
         malumotYozish=new MalumotYozish(this);
         tableData=new TableData();
-//
-//       try{
-//
-//
-//           tableData=new TableData();
-//
-//           result=tableData.getIchimlikNarxi();
-//           result*=tableData.getIchimlikSoni();
-//
-//           result1=tableData.getTaomNarxi();
-//           result1*=tableData.getTaomSoni();
-//
-//           result2=tableData.getVaBoshqaNarxlar();
-//           result2*=tableData.getBoshqaSoni();
-//
-//           resultAll=result+result1+result2;
-//           System.out.println(resultAll);
-//       }catch (NullPointerException e){
-//           System.out.println(e.getMessage());
-//
-//       }
+
     }
 
 
     public void setTableData(){
-//        Integer result=
 
-//        ObservableList<TableData> malumotlar= FXCollections.observableArrayList(
-//                new TableData("Palov","Cola",
-//                        "Salat",20000,4,15000,6,40000,8,resultAll)
-//                , new TableData("Manti","Fanta",
-//                        "Pyure",25000,2,35000,4,60000,6,resultAll)
-//                , new TableData("Shorva","Pepsi",
-//                        "Perashki",10000,10,25000,8,20000,6,resultAll)
-//
-//        );
 
         taomNomi.setCellValueFactory(new PropertyValueFactory<>("taomNomi"));
         ichimlikNomi.setCellValueFactory(new PropertyValueFactory<>("ichimlikNomi"));
@@ -172,16 +147,16 @@ public class HelloController implements Initializable {
 
         if (ichimlikNarxiTf.getText().isEmpty()&&ichimlikSoniTf.getText().isEmpty()){
             ichimlikSum=0;
-        ichimlik_narxi=0;
-        ichimlik_soni=0;
+            ichimlik_narxi=0;
+            ichimlik_soni=0;
 
             tableData.setIchimlikNarxi(null);
             tableData.setIchimlikSoni(null);
         }else{
-           ichimlik_nomi=ichimlikNomiCBox.getSelectionModel().getSelectedItem();
-        ichimlik_narxi=Integer.parseInt(ichimlikNarxiTf.getText());
-        ichimlik_soni=Integer.parseInt(ichimlikSoniTf.getText());
-        ichimlikSum=ichimlik_narxi*ichimlik_soni;
+            ichimlik_nomi=ichimlikNomiCBox.getSelectionModel().getSelectedItem();
+            ichimlik_narxi=Integer.parseInt(ichimlikNarxiTf.getText());
+            ichimlik_soni=Integer.parseInt(ichimlikSoniTf.getText());
+            ichimlikSum=ichimlik_narxi*ichimlik_soni;
 
         }
 
@@ -203,14 +178,6 @@ public class HelloController implements Initializable {
         jamiSum=taomSum+ichimlikSum+boshqaSum;
 
 
-//        malumotlar.add(new TableData(taomNomiCBox.getSelectionModel().getSelectedItem(),
-//                ichimlikNomiCBox.getSelectionModel().getSelectedItem(),
-//                boshqaNomiCBox.getSelectionModel().getSelectedItem(),
-//              Integer.parseInt(taomNarxiTf.getText()),
-//              Integer.parseInt(taomSoniTf.getText()),Integer.parseInt(ichimlikNarxiTf.getText()),
-//              Integer.parseInt(ichimlikSoniTf.getText()),
-//                Integer.parseInt(boshqaNarxiTf.getText()),
-//              Integer.parseInt(boshqaSoniTf.getText()),jamiSum));
         malumotlar.addAll(new TableData(
                 taom_nomi,taom_narxi,taom_soni,
                 ichimlik_nomi,ichimlik_narxi,ichimlik_soni,
@@ -228,24 +195,24 @@ public class HelloController implements Initializable {
         ichimlikSoni.setCellValueFactory(new PropertyValueFactory<>("ichimlikSoni"));
         boshqaSoni.setCellValueFactory(new PropertyValueFactory<>("boshqaSoni"));
 
-      tableView.setItems(malumotlar);
+        tableView.setItems(malumotlar);
 
-      taomSoniTf.clear();
-      taomNarxiTf.clear();
-      taomNomiCBox.getSelectionModel().clearSelection();
-      taomNomiCBox.setPromptText("Choose...");
+        taomSoniTf.clear();
+        taomNarxiTf.clear();
+        taomNomiCBox.getSelectionModel().clearSelection();
+        taomNomiCBox.setPromptText("Choose...");
 
-      ichimlikNomiCBox.getSelectionModel().clearSelection();
-      ichimlikNarxiTf.clear();
-      ichimlikSoniTf.clear();
+        ichimlikNomiCBox.getSelectionModel().clearSelection();
+        ichimlikNarxiTf.clear();
+        ichimlikSoniTf.clear();
         ichimlikNomiCBox.setPromptText("Choose...");
 
-      boshqaNomiCBox.getSelectionModel().clearSelection();
-      boshqaNarxiTf.clear();
-      boshqaSoniTf.clear();
+        boshqaNomiCBox.getSelectionModel().clearSelection();
+        boshqaNarxiTf.clear();
+        boshqaSoniTf.clear();
         boshqaNomiCBox.setPromptText("Choose...");
 
-       Integer qiymat=Integer.parseInt(narxQiymatiLbl.getText())+ jamiSum;
+        Integer qiymat=Integer.parseInt(narxQiymatiLbl.getText())+ jamiSum;
 
 
         narxQiymatiLbl.setText(String.valueOf(qiymat));
@@ -253,7 +220,29 @@ public class HelloController implements Initializable {
         System.out.println(qiymat);
     }
 
-   public void actionSettings(ActionEvent event) {
+
+    // Ma'lumotlarn fayldan o'zlashtirish metodi
+    public void fayldanMalumotOl(){
+
+        try {
+            Scanner scanner=new Scanner(malumotYozish.file);
+            String qator;
+            while (scanner.hasNext()){
+                qator=scanner.nextLine();
+               taomToplami.add(qator);
+
+
+                taomNomiCBox.getItems().addAll(taomToplami);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void actionSettings(ActionEvent event) {
 
         harakat.action(event);
         malumotYozish.malumotYoz(event);
@@ -264,10 +253,10 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        sozlamalar.setOnAction(this::actionSettings);
-        buyurtmalar.setOnAction(this::actionSettings);
         kiritishButton.setOnAction(this::malomotKiritish);
-
+        home.setOnAction(this::actionSettings);
+        buyurtmalar.setOnAction(this::actionSettings);
+        sozlamalar.setOnAction(this::actionSettings);
 
 
         taomNomiCBox.getItems().addAll(malumotYozish.taomlarToplami);
@@ -281,6 +270,20 @@ public class HelloController implements Initializable {
         });
         ichimlikNomQoshBtn.setOnAction(event -> malumotYozish.malumotYoz(event) );
         boshqaNomQoshBtn.setOnAction(event ->   malumotYozish.malumotYoz(event) );
+
+
+        saveButton.setOnAction(event -> {
+            malumotYozish.saveAllBtnAction(event);
+            fayldanMalumotOl();
+        });
+        fayldanMalumotOl();
+
+        taomNomiCBox.setVisibleRowCount(5);
+        ichimlikNomiCBox.setVisibleRowCount(5);
+        boshqaNomiCBox.setVisibleRowCount(5);
+
+
+
         setTableData();
 
 

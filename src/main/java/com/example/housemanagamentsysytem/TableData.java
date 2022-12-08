@@ -1,10 +1,13 @@
-package com.example.housemanagamentsysytem;
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
+package com.example.housemanagamentsysytem;
 
 import javafx.beans.property.SimpleStringProperty;
 
 public class TableData {
-
     private SimpleStringProperty taomNomi;
     private SimpleStringProperty ichimlikNomi;
     private SimpleStringProperty vaBoshqalarNomi;
@@ -13,45 +16,31 @@ public class TableData {
     private Integer vaBoshqaNarxlar;
     private Integer jamiNarx;
     private Integer taomSoni;
-     private Integer  ichimlikSoni;
-    private Integer   boshqaSoni;
-   // private Integer result=0;
+    private Integer ichimlikSoni;
+    private Integer boshqaSoni;
 
-
-
-
-    public TableData(){
-
+    public TableData() {
     }
 
-
-
-
-    public TableData(String taomNom,Integer taomNarxi,Integer taomSoni, String ichimlikNom,
-                       Integer ichimlikNarxi, Integer ichimlikSoni, String vaBoshqalarNom,
-                     Integer vaBoshqaNarxlar, Integer boshqaSoni, Integer jamiNarx) {
-
-
-       taomNomi=new SimpleStringProperty(taomNom);
-       ichimlikNomi=new SimpleStringProperty(ichimlikNom);
-       vaBoshqalarNomi=new SimpleStringProperty(vaBoshqalarNom);
+    public TableData(String taomNom, Integer taomNarxi, Integer taomSoni, String ichimlikNom, Integer ichimlikNarxi, Integer ichimlikSoni, String vaBoshqalarNom, Integer vaBoshqaNarxlar, Integer boshqaSoni, Integer jamiNarx) {
+        this.taomNomi = new SimpleStringProperty(taomNom);
+        this.ichimlikNomi = new SimpleStringProperty(ichimlikNom);
+        this.vaBoshqalarNomi = new SimpleStringProperty(vaBoshqalarNom);
         this.taomNarxi = taomNarxi;
         this.ichimlikNarxi = ichimlikNarxi;
         this.vaBoshqaNarxlar = vaBoshqaNarxlar;
-        this.jamiNarx=jamiNarx;
+        this.jamiNarx = jamiNarx;
         this.taomSoni = taomSoni;
         this.ichimlikSoni = ichimlikSoni;
         this.boshqaSoni = boshqaSoni;
-
-
     }
 
     public String getTaomNomi() {
-        return taomNomi.get();
+        return this.taomNomi.get();
     }
 
     public SimpleStringProperty taomNomiProperty() {
-        return taomNomi;
+        return this.taomNomi;
     }
 
     public void setTaomNomi(String taomNomi) {
@@ -59,11 +48,11 @@ public class TableData {
     }
 
     public String getIchimlikNomi() {
-        return ichimlikNomi.get();
+        return this.ichimlikNomi.get();
     }
 
     public SimpleStringProperty ichimlikNomiProperty() {
-        return ichimlikNomi;
+        return this.ichimlikNomi;
     }
 
     public void setIchimlikNomi(String ichimlikNomi) {
@@ -71,11 +60,11 @@ public class TableData {
     }
 
     public String getVaBoshqalarNomi() {
-        return vaBoshqalarNomi.get();
+        return this.vaBoshqalarNomi.get();
     }
 
     public SimpleStringProperty vaBoshqalarNomiProperty() {
-        return vaBoshqalarNomi;
+        return this.vaBoshqalarNomi;
     }
 
     public void setVaBoshqalarNomi(String vaBoshqalarNomi) {
@@ -83,7 +72,7 @@ public class TableData {
     }
 
     public Integer getTaomNarxi() {
-        return taomNarxi;
+        return this.taomNarxi;
     }
 
     public void setTaomNarxi(Integer taomNarxi) {
@@ -91,7 +80,7 @@ public class TableData {
     }
 
     public Integer getIchimlikNarxi() {
-        return ichimlikNarxi;
+        return this.ichimlikNarxi;
     }
 
     public void setIchimlikNarxi(Integer ichimlikNarxi) {
@@ -99,7 +88,7 @@ public class TableData {
     }
 
     public Integer getVaBoshqaNarxlar() {
-        return vaBoshqaNarxlar;
+        return this.vaBoshqaNarxlar;
     }
 
     public void setVaBoshqaNarxlar(Integer vaBoshqaNarxlar) {
@@ -107,7 +96,7 @@ public class TableData {
     }
 
     public Integer getTaomSoni() {
-        return taomSoni;
+        return this.taomSoni;
     }
 
     public void setTaomSoni(Integer taomSoni) {
@@ -115,7 +104,7 @@ public class TableData {
     }
 
     public Integer getIchimlikSoni() {
-        return ichimlikSoni;
+        return this.ichimlikSoni;
     }
 
     public void setIchimlikSoni(Integer ichimlikSoni) {
@@ -123,7 +112,7 @@ public class TableData {
     }
 
     public Integer getBoshqaSoni() {
-        return boshqaSoni;
+        return this.boshqaSoni;
     }
 
     public void setBoshqaSoni(Integer boshqaSoni) {
@@ -134,41 +123,22 @@ public class TableData {
         this.jamiNarx = jamiNarx;
     }
 
-
-
-
-
-    public Integer getJamiNarx(){
+    public Integer getJamiNarx() {
         Integer result;
-        if (taomNarxi!=null&&taomSoni!=null&&ichimlikNarxi!=null&&
-                ichimlikSoni!=null&&vaBoshqaNarxlar!=null&&boshqaSoni!=null){
-
-
-            result=taomNarxi*taomSoni+ichimlikNarxi*ichimlikSoni+vaBoshqaNarxlar*boshqaSoni;
+        if (this.taomNarxi != null && this.taomSoni != null && this.ichimlikNarxi != null && this.ichimlikSoni != null && this.vaBoshqaNarxlar != null && this.boshqaSoni != null) {
+            result = this.taomNarxi * this.taomSoni + this.ichimlikNarxi * this.ichimlikSoni + this.vaBoshqaNarxlar * this.boshqaSoni;
             return result;
-
-
+        } else if (this.taomNarxi.equals((Object)null) & this.taomSoni.equals((Object)null)) {
+            result = this.ichimlikNarxi * this.ichimlikSoni + this.vaBoshqaNarxlar * this.boshqaSoni;
+            return result;
+        } else if (this.ichimlikNarxi.equals((Object)null) && this.ichimlikSoni.equals((Object)null)) {
+            result = this.taomNarxi * this.taomSoni + this.vaBoshqaNarxlar * this.boshqaSoni;
+            return result;
+        } else if (this.vaBoshqaNarxlar.equals((Object)null) && this.boshqaSoni.equals((Object)null)) {
+            result = this.taomNarxi * this.taomSoni + this.ichimlikNarxi * this.ichimlikSoni;
+            return result;
+        } else {
+            return this.taomNarxi * this.taomSoni + this.ichimlikNarxi * this.ichimlikSoni + this.vaBoshqaNarxlar * this.boshqaSoni;
         }
-        else if (taomNarxi.equals(null)&taomSoni.equals(null)){
-
-            result=ichimlikNarxi*ichimlikSoni+vaBoshqaNarxlar*boshqaSoni;
-            return result;
-
-        }  else if (ichimlikNarxi.equals(null)&&ichimlikSoni.equals(null)){
-
-            result=taomNarxi*taomSoni+vaBoshqaNarxlar*boshqaSoni;
-            return result;
-
-            }else if (vaBoshqaNarxlar.equals(null)&&boshqaSoni.equals(null)){
-
-            result=taomNarxi*taomSoni+ichimlikNarxi*ichimlikSoni;
-            return result;
-
-        }
-
-        return taomNarxi*taomSoni+ichimlikNarxi*ichimlikSoni+vaBoshqaNarxlar*boshqaSoni;
     }
-
-
-
 }

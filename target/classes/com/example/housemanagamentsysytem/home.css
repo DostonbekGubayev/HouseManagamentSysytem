@@ -1,0 +1,109 @@
+
+    .anchorPane{
+
+       -fx-background-color:linear-gradient(to bottom left,#820853,#320220);
+
+
+    }
+
+
+
+    .homePane{
+
+   -fx-background-color:linear-gradient(to bottom left,#2f466b,#662d60);
+   -fx-background-radius: 30 0 30 0;
+   -fx-border-radius:30 0 30 0;
+   -fx-border-color:#fff;
+   -fx-border-width:2.5px;
+
+
+
+    }
+
+    .homeLbl{
+
+    -fx-text-fill:#fff;
+    -fx-font-size:44px;
+    -fx-font-family: "Consolas";
+    -fx-font-style: Italic;
+      -fx-text-alignment: Center;
+    }
+
+
+
+        .taomPanel{
+
+        -fx-background-color:linear-gradient( to bottom right,#84c675,#1b680b);
+        -fx-background-radius:15px;
+        -fx-border-radius: 15px;
+        -fx-pref-width:250;
+        -fx-pref-height:170;
+        -fx-border-color:#ffe9e5;
+        -fx-border-width:2.5px;
+
+        }
+
+        .ichimlikPanel{
+
+                -fx-background-color:linear-gradient( to bottom right,#7be1da,#1b680b);
+                -fx-background-radius:15px;
+                -fx-border-radius: 15px;
+                -fx-pref-width:250;
+                -fx-pref-height:170;
+                -fx-border-color:#ffe9e5;
+                -fx-border-width:2.5px;
+
+       }
+
+
+       .boshqaPanel{
+
+                       -fx-background-color:linear-gradient( to bottom right,#33a1fc,#155994,#fff,rgba(00, 90, 70, 0.2));
+                       -fx-background-radius:15px;
+                       -fx-border-radius: 15px;
+                       -fx-pref-width:250;
+                       -fx-pref-height:170;
+                       -fx-border-color:#ffe9e5;
+                       -fx-border-width:2.5px;
+
+          }
+
+          .buyurtmaPanel{
+
+                          -fx-background-color:linear-gradient( to bottom right,#d9e16d,#848d08,#1b680b);
+                          -fx-background-radius:15px;
+                          -fx-border-radius: 15px;
+                          -fx-pref-width:250;
+                          -fx-pref-height:170;
+                          -fx-border-color:#ffe9e5;
+                          -fx-border-width:2.5px;
+
+          }
+
+            .stolPanel{
+
+                          -fx-background-color:linear-gradient( to bottom right,#5fc3e8,#458097,#d9e16d,#944454,#d32646);
+                          -fx-background-radius:15px;
+                          -fx-border-radius: 15px;
+                          -fx-pref-width:250;
+                          -fx-pref-height:170;
+                          -fx-border-color:#ffe9e5;
+                          -fx-border-width:2.5px;
+
+          }
+
+          .jamiPanel{
+
+                                    -fx-background-color:linear-gradient( to bottom right,#c97760,#d9e16d,#a83b1e,#848d08,#1b680b);
+                                    -fx-background-radius:15px;
+                                    -fx-border-radius: 15px;
+                                    -fx-pref-width:250;
+                                    -fx-pref-height:170;
+                                    -fx-border-color:#ffe9e5;
+                                    -fx-border-width:2.5px;
+
+                    }
+
+
+
+

@@ -1,13 +1,17 @@
 package com.example.housemanagamentsysytem;
 
+//import data.DataBaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Arrays;
+import java.util.Formatter;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -29,7 +33,7 @@ public class MalumotYozish {
 
 
 
-  ObservableList<String> taomlarToplami= FXCollections.observableArrayList();
+    ObservableList<String> taomlarToplami= FXCollections.observableArrayList();
     ObservableList<String>ichimlikToplami=FXCollections.observableArrayList();
     ObservableList<String>boshqalarToplami=FXCollections.observableArrayList();
 
@@ -37,14 +41,25 @@ public class MalumotYozish {
     FileWriter fileWriter;
     File file;
 
+
+    PreparedStatement preparedStatement;
+    Statement statement;
+    ResultSet resultSet;
+    Connection connection;
+    String qator;
+
+
     public MalumotYozish(HelloController controller){
         this.controller=controller;
+
+      //  connection= DataBaseConnection.connectDB();
+
 
         malumotYoz(new ActionEvent());
 
 
         for (String x: taomQiymatlari){
-            taomlarToplami.add(x);
+          //  taomlarToplami.add(x);
         }
         for (String y:ichimlikQiymatlari){
             ichimlikToplami.add(y);
@@ -54,32 +69,25 @@ public class MalumotYozish {
         }
 
 
+        file=new File("src/taomMalumotlari.txt");
 
     }
 
     public  void malumotYoz(ActionEvent event){
 
         if (event.getSource().equals(controller.taomNomQoshBtn)){
-            
 
-           taomlarToplami.addAll(String.valueOf(taomlarToplami.addAll(controller.boshqaNomiSetting.getText())));
+
+            taomlarToplami.add(controller.taomNomiSetting.getText());
             //controller.taomNomiCBox.getItems().add(controller.taomNomiSetting.getText());
             controller.taomNomiSettCbox.getItems().add(controller.taomNomiSetting.getText());
 
-            file=new File("src/taomMalumotlari.txt");
-
             try {
-                file.createNewFile();
-                 fileWriter=new FileWriter(file);
-                while (true){
-                    fileWriter.write(controller.taomNomiSetting.getText());
-                    fileWriter.close();
-                    Scanner scanner=new Scanner(file);
-                    controller.taomNomiCBox.getItems().add(scanner.nextLine());
-                }
+                faylgaYoz();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
 
         }else if (event.getSource().equals(controller.ichimlikNomQoshBtn)){
 
@@ -93,5 +101,47 @@ public class MalumotYozish {
 
         }
 
- }
+    }
+
+    public void faylgaYoz() throws IOException {
+
+      //  String sql="select insert into karvon_kafesi (taoNomi) ";
+
+        fileWriter=new FileWriter(file,true);
+        fileWriter.write(controller.taomNomiSetting.getText());
+       fileWriter.write("\n");
+
+       fileWriter.flush();
+       fileWriter.close();
+
+        controller.taomNomiSetting.clear();
+
+
+
+
+    }
+
+    public void saveAllBtnAction(ActionEvent event){
+
+           malumotOzlashtirish();
+    }
+
+    public void malumotOzlashtirish(){
+        try {
+            Scanner scanner=new Scanner(file);
+
+            if (scanner.hasNext()){
+                qator=scanner.nextLine();
+                taomlarToplami.add(qator);
+
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+      //  controller.taomNomiCBox.getItems().addAll(taomlarToplami);
+    }
+
+
+
 }
